@@ -168,16 +168,23 @@ Supporting screenshots demonstrating the SQL injection assessment, authenticatio
 
 - [SQL Injection Evidence](evidence/sql-injection/)
 
-The SQL injection vulnerability was successfully demonstrated before remediation. ModSecurity was then configured as a Web Application Firewall (WAF), and subsequent malicious requests were blocked with an HTTP 403 Forbidden response.
+The SQL injection vulnerability was successfully demonstrated before remediation. ModSecurity was then configured as a Web Application Firewall (WAF), and subsequent malicious requests were blocked with an HTTP 403 Forbidden response. 
+### Security Control Evidence
+
+Supporting evidence for security controls implemented and tested during the assessment is available below:
+
+- [Fail2Ban SSH Brute-Force Testing](./evidence/fail2ban/)
+- [Apache Server Hardening](./evidence/apache-hardening/)
+- [HTTP / HTTPS Security Assessment](./evidence/https/)
+
+These sections contain configuration evidence, testing results and before-and-after validation where applicable.
 
 ### XSS Assessment Note
+
+[View XSS Assessment](./documentation/findings/xss.md)
 
 Cross-Site Scripting was successfully identified and tested through the application's search functionality.
 
 A JavaScript test payload entered through the search field was executed by the application and produced a browser popup, demonstrating that user-controlled input was being processed without sufficient input validation or output encoding.
 
 XSS remediation was not completed within the available assessment timeframe. Recommended controls include server-side input validation, output encoding and appropriate browser-side security controls.
-
-### Assessment Scope
-
-All security testing was performed against the controlled educational application used for the project. No unauthorised systems were targeted.
