@@ -1,69 +1,95 @@
 # Fail2Ban SSH Brute-Force Testing
 
-Documentation of the Fail2Ban testing performed during the controlled educational security assessment.
+Documentation and evidence from Fail2Ban testing performed during the controlled educational security assessment.
 
 ## Assessment
 
-Fail2Ban was configured to monitor repeated failed SSH authentication attempts on the Ubuntu server.
+Fail2Ban was configured on the Ubuntu server to monitor repeated failed SSH authentication attempts and automatically ban offending IP addresses.
 
-The objective was to determine whether repeated authentication failures would trigger the configured protection and result in the source IP address being banned.
+The objective was to determine whether repeated authentication failures would trigger the configured defensive control.
 
 ## Testing Process
 
-The assessment followed these steps:
+The assessment followed these stages:
 
-1. Configure Fail2Ban to monitor SSH authentication failures.
-2. Generate repeated failed SSH authentication attempts within the controlled lab environment.
-3. Monitor the relevant authentication and Fail2Ban logs.
-4. Check whether the source IP address was banned.
-5. Investigate the behaviour when the expected ban did not occur immediately.
-6. Retest the control after investigating the configuration and logs.
-7. Verify successful IP banning during retesting.
+1. Install and enable Fail2Ban.
+2. Configure SSH protection parameters including `bantime`, `findtime`, and `maxretry`.
+3. Generate repeated failed SSH authentication attempts within the controlled lab environment.
+4. Monitor SSH authentication and Fail2Ban logs.
+5. Investigate the initial failure to trigger the expected IP ban.
+6. Review configuration and log activity.
+7. Retest the control.
+8. Verify successful IP banning.
+
+## Evidence
+
+### 1. Fail2Ban Installation
+
+[View installation evidence](./01-fail2ban-installation.png)
+
+Fail2Ban was installed and the service was started on the Ubuntu server.
+
+### 2. Fail2Ban Configuration
+
+[View configuration evidence](./02-fail2ban-configuration.png)
+
+Fail2Ban configuration parameters were reviewed and modified, including:
+
+- `bantime`
+- `findtime`
+- `maxretry`
+
+### 3. Initial Test and Troubleshooting
+
+[View initial test evidence](./03-fail2ban-initial-test-troubleshooting.png)
+
+The initial brute-force test did not immediately result in the expected IP ban.
+
+The behaviour was investigated through configuration checks and Fail2Ban log analysis.
+
+### 4. SSH Failure Detection
+
+[View SSH detection evidence](./04-ssh-failure-detection.png)
+
+Fail2Ban logs demonstrated repeated SSH authentication failures being detected by the `sshd` jail.
+
+### 5. Successful IP Ban
+
+[View successful ban evidence](./05-fail2ban-successful-ban.png)
+
+Following investigation and retesting, Fail2Ban successfully detected offending SSH activity and applied IP bans.
+
+The logs demonstrate repeated `Found`, `Ban`, and `Unban` events.
 
 ## Initial Result
 
-Initial testing did not immediately produce the expected IP ban.
+The first test did not immediately produce the expected IP ban.
 
-The behaviour was investigated by reviewing Fail2Ban logs and authentication events to determine why the expected action had not occurred.
+Rather than treating the test as successful, the behaviour was investigated by reviewing Fail2Ban logs and authentication events.
 
 ## Retest Result
 
 Following investigation and configuration checks, the test was repeated.
 
-The retest successfully demonstrated IP banning by Fail2Ban.
+The subsequent test successfully demonstrated automatic IP banning by Fail2Ban.
 
 This confirmed that the defensive control was functioning as intended under the tested conditions.
 
-## Log Analysis
+## Security Skills Demonstrated
 
-The assessment included analysis of:
-
-- SSH authentication failures
-- Fail2Ban logs
-- Ban and unban events
-
-Log analysis was used to investigate the initial unexpected behaviour and validate the operation of the security control.
-
-## Skills Demonstrated
-
-- Linux security administration
-- SSH security testing
-- Brute-force detection
+- Linux system administration
+- SSH security
+- Brute-force attack simulation
 - Fail2Ban configuration
-- Security log analysis
-- Troubleshooting security controls
-- Control validation
-- Before-and-after testing
-- Security documentation
+- Security control validation
+- Log analysis
+- Troubleshooting
+- Incident detection
+- Defensive security controls
+- Retesting and verification
 
-## Evidence Limitation
+## Security Context
 
-No dedicated screenshots were captured for the Fail2Ban testing.
+All testing was performed within a controlled educational environment as part of a Level 2 Cyber Security project.
 
-The finding is documented based on the testing and investigation performed during the controlled educational assessment.
-
-## Scope
-
-All testing was performed against the controlled educational environment used for the project.
-
-No unauthorised systems were targeted.
+The testing was conducted for defensive security assessment and learning purposes.
