@@ -129,7 +129,7 @@ This project provided practical experience in:
 - SQL injection testing
 - XSS testing
 - Web application firewall configuration
-- Intrusion prevention
+- Intrusion prevention controls
 - Server hardening
 - Security documentation
 - Risk mitigation
