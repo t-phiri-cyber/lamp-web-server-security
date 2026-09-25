@@ -23,7 +23,7 @@ Testing followed a structured process:
 | Area | Finding | Remediation / Outcome |
 |---|---|---|
 | SQL Injection | SQL injection was demonstrated against a PHP/MySQL customer login | ModSecurity was implemented and subsequent malicious requests returned HTTP 403 Forbidden |
-| XSS | XSS and input-handling weaknesses were identified during application testing | Input validation and output-encoding improvements were recommended |
+| XSS | XSS was demonstrated through the search functionality during application testing | Remediation was not completed, input and output-encoding improvements were recommended |
 | Server Information Disclosure | Apache exposed unnecessary server information | `ServerTokens` and `ServerSignature` were modified to reduce information disclosure |
 | Directory Listing | Apache directory contents were accessible | `Options -Indexes` was implemented and access returned HTTP 403 Forbidden |
 | SSH Brute Force | Repeated failed SSH authentication attempts were tested against Fail2Ban | Fail2Ban behaviour was investigated, logs analysed and successful IP banning verified during retesting |
