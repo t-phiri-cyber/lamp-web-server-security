@@ -152,3 +152,32 @@ Potential future improvements include:
 - Improved physical security controls
 - Data Protection Officer review where required
 - Microsoft security tooling integration
+## 📂 Security Assessment Evidence
+
+Detailed findings and supporting evidence from the assessment are documented below.
+
+### Vulnerability Findings
+
+- [SQL Injection Assessment](documentation/findings/sql-injection.md)
+- [Cross-Site Scripting (XSS) Assessment](documentation/findings/xss.md)
+- [Security Testing Summary](documentation/security-testing-summary.md)
+
+### SQL Injection Evidence
+
+Supporting screenshots demonstrating the SQL injection assessment, authentication bypass testing, ModSecurity configuration and successful request blocking are available in:
+
+- [SQL Injection Evidence](evidence/sql-injection/)
+
+The SQL injection vulnerability was successfully demonstrated before remediation. ModSecurity was then configured as a Web Application Firewall (WAF), and subsequent malicious requests were blocked with an HTTP 403 Forbidden response.
+
+### XSS Assessment Note
+
+Cross-Site Scripting was successfully identified and tested through the application's search functionality.
+
+A JavaScript test payload entered through the search field was executed by the application and produced a browser popup, demonstrating that user-controlled input was being processed without sufficient input validation or output encoding.
+
+XSS remediation was not completed within the available assessment timeframe. Recommended controls include server-side input validation, output encoding and appropriate browser-side security controls.
+
+### Assessment Scope
+
+All security testing was performed against the controlled educational application used for the project. No unauthorised systems were targeted.
