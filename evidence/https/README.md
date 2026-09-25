@@ -1,52 +1,65 @@
-# HTTPS / SSL-TLS Assessment
+# HTTP / HTTPS Security Assessment
 
-Documentation of the HTTPS and SSL/TLS security assessment performed during the controlled educational project.
+Documentation and evidence of the HTTP/HTTPS security finding identified during the controlled educational security assessment.
 
 ## Finding
 
-The web application was observed operating over HTTP rather than HTTPS during the assessment.
+The web application was accessed using HTTP rather than HTTPS.
 
-This meant that communications between the client and web server were not protected by TLS.
+The browser displayed **"Not secure"**, indicating that the connection was not protected by HTTPS/TLS.
+
+The application was also accessed using a direct IP address rather than a configured domain name.
 
 ## Security Impact
 
-Using HTTP without TLS can expose network communications to risks including:
+Using HTTP means traffic between the browser and web server is not protected by TLS encryption.
 
-- Interception of transmitted data
-- Exposure of credentials or other sensitive information
-- Man-in-the-middle attacks
-- Loss of confidentiality and integrity of web traffic
+Depending on the type of information transmitted, unencrypted HTTP traffic may be vulnerable to interception or modification in transit.
 
-The actual risk depends on the network environment and the type of information transmitted by the application.
+Using a direct IP address also provides a less conventional user-facing configuration than accessing the application through a registered domain.
 
-## Assessment Result
+## Evidence
 
-The use of HTTP was identified as a security weakness during the assessment.
+### HTTP Connection
 
-SSL/TLS implementation was identified as a required future remediation.
+[View HTTP / Not Secure evidence](./01-http-not-secure.png)
 
-HTTPS was not implemented within the available assessment timeframe.
+The browser address bar shows:
+
+- HTTP rather than HTTPS
+- **Not secure** browser warning
+- Direct IP-based access
+
+The IP address has been redacted from the public evidence image.
 
 ## Recommended Remediation
 
-Recommended controls include:
+The recommended remediation was to:
 
-- Obtain a valid TLS certificate.
-- Configure Apache to support HTTPS.
-- Redirect HTTP traffic to HTTPS.
-- Disable insecure HTTP access where appropriate.
-- Configure modern TLS protocols and secure cipher suites.
-- Verify certificate validity and configuration.
-- Retest the application after implementation.
+1. Register and configure a suitable domain name.
+2. Obtain and install a valid TLS certificate.
+3. Configure Apache to serve the application over HTTPS.
+4. Redirect HTTP requests to HTTPS.
+5. Verify that sensitive traffic is encrypted.
+6. Retest the application after TLS implementation.
 
-## Evidence Limitation
+## Assessment Result
 
-No separate screenshot was captured specifically for the HTTPS finding.
+HTTPS/TLS remediation was identified as a required security improvement but was not implemented within the assessment timeframe.
 
-The finding is documented based on the application behaviour observed during the controlled educational assessment.
+The finding was documented for future remediation rather than being presented as a completed security control.
 
-## Scope
+## Security Skills Demonstrated
 
-All testing was performed against the controlled educational environment used for the project.
+- Web security assessment
+- HTTP/HTTPS analysis
+- Transport security awareness
+- Security finding documentation
+- Risk identification
+- Remediation planning
 
-No unauthorised systems were targeted.
+## Security Context
+
+All testing was performed within a controlled educational environment as part of a Level 2 Cyber Security project.
+
+The assessment was conducted for defensive security assessment and learning purposes.
